@@ -1,0 +1,166 @@
+<html>
+<head>
+    <title>Predict the Person!!!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+            * {
+              box-sizing: border-box;
+            }
+            
+            body {
+              margin: 0;
+              font-family: Arial;
+            }
+            
+            /* The grid: Four equal columns that floats next to each other */
+            .column {
+              float: left;
+              width: 25%;
+              padding: 10px;
+            }
+            
+            /* Style the images inside the grid */
+            .column img {
+              opacity: 0.8; 
+              cursor: pointer; 
+            }
+            
+            .column img:hover {
+              opacity: 1;
+            }
+            
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
+            
+            /* The expanding image container */
+            .container {
+              position: relative;
+            }
+            
+            /* Expanding image text */
+            #imgtext {
+              position: absolute;
+              bottom: 15px;
+              left: 15px;
+              color: white;
+              font-size: 20px;
+            }
+            
+            /* Closable button inside the expanded image */
+            .closebtn {
+              position: absolute;
+              top: 10px;
+              right: 15px;
+              color: white;
+              font-size: 35px;
+              cursor: pointer;
+            }
+            .p-top {
+                padding-top: 10px;
+            }
+            .p-top2 {
+                padding-top: 30px;
+            }
+            </style>
+</head>
+
+<body >
+    <main>
+        <div class="container ">
+                <!-- <button onclick="changeImage()">NextImage</button> -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2">
+                        Loading Model
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- <div class="col-6">
+                    <input type="file" id="image-selector" class="form-control border-0">
+                </div> -->
+                <div class="col-12">
+                    <div class="col-12 text-center">
+                        <h4 class="ml-3">Query Image</h4>
+                        <img id="selected-image" class="ml-3" src="">
+                    </div>
+                </div>
+            </div>
+
+                <div class="row p-top">
+                    <div class="col-4 ">
+                            <button class="btn btn-dark "
+                                onclick="changeImagePrev()">Previous Image</button>
+                    </div>
+                    <div class="col-4 ">
+                            <button class="btn btn-dark "
+                                onclick="changeImage()">Next Image</button>
+                    </div>
+                
+                <div class="col-4 ">
+                    <button id="predict-btn" class="btn btn-dark ">
+                        Predict the person
+                    </button>
+                </div>
+                </div>
+            </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-12 ">
+                    <div id="pred" class = "text-center p-top">
+                        <h4>Matched Person</h4>
+                        <img id="predicted"  class="ml-3 " src="">
+                        <div id="prediction-list">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+                <div class="col-12">
+                    <h2 class="ml-3">Image</h2>
+                    <img id="selected-image" class="ml-3" src="">
+                </div>
+            </div> -->
+
+        </div>
+        <!-- <div class="row">
+            <div class="col-12 text-center p-top2">
+                <input type="text" name="googleBox" id="googleBox" ></input>
+                <button id="searchButton" onclick="search()">Search</button>
+            </div>
+        </div> -->
+        <!-- <div id="test"></div>
+        <script>
+                (function() {
+                  var cx = '001967967201881619301:he5u51h2wvg';
+                  var gcse = document.createElement('script');
+                  gcse.type = 'text/javascript';
+                  gcse.async = true;
+                  gcse.searchType = 'image';
+                  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+                  var s = document.getElementsByTagName('script')[0];
+                  s.parentNode.insertBefore(gcse, s);
+                })();
+              </script>
+              <gcse:search enableImageSearch="true" defaultToImageSearch="true"></gcse:search> -->
+
+    </main>
+
+    <script src="https://www.dukelearntoprogram.com/course1/common/js/image/SimpleImage.js" >
+    </script>
+    <script src="https://www.google.com/jsapi"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.5"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.2/math.js"></script>
+    <script src="classes.js"></script>
+    <script src="predict.js"></script>
+    
+</body></html>
