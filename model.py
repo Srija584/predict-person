@@ -26,10 +26,10 @@ data_path_test = os.path.join(img_dir_test,'*g')
 num_train = 960
 num_test = 72
 
-img_dim = 64
+img_dim = 64 #each input image will be of size 64x64
 num_persons = 12
-num_each_train = 80
-num_each_test = 6
+num_each_train = 80 #number of training images for each person
+num_each_test = 6  #number of test images for each person
 
 files = glob.glob(data_path_train)
 count = 0
